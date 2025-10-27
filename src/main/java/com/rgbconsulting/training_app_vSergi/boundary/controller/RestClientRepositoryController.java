@@ -22,4 +22,20 @@ public class RestClientRepositoryController {
     public List<Client> getAllClients() {
         return myService.getAllClients();
     }
+    
+    @PostMapping("/training-app-springboot/api/jta/client")
+    public void insertClient(@RequestBody Client client) {
+        client.setId(null);
+        this.myService.insertClient(client);
+    }
+    
+    @PutMapping("/training-app-springboot/api/jta/client")
+    public void updateClient(@RequestBody Client client) {
+        this.myService.updateClient(client);
+    }
+    
+    @DeleteMapping("/training-app-springboot/api/jta/client/id/{id}")
+    public void deleteClientByid(@PathVariable long id) {
+        this.myService.deleteClientByid(id);
+    }   
 }
