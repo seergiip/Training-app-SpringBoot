@@ -108,6 +108,9 @@ public class Client implements Serializable{
     
     public Map<String, Object> getFieldsAsHashMap() {
         Map<String, Object> fields = new HashMap<>();
+        if (this.id != null) {
+            fields.put("id", this.id);
+        }
         fields.put("name", this.name);
         fields.put("email", this.email);
         fields.put("address", this.address);

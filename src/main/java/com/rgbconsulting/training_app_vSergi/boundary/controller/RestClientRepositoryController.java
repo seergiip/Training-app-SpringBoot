@@ -3,6 +3,7 @@ package com.rgbconsulting.training_app_vSergi.boundary.controller;
 import com.rgbconsulting.training_app_vSergi.boundary.rest.RestClientRepository;
 import com.rgbconsulting.training_app_vSergi.data.model.Client;
 import java.util.List;
+import java.util.Optional;
 import org.springframework.web.bind.annotation.*;
 /**
  *
@@ -21,6 +22,11 @@ public class RestClientRepositoryController {
     @GetMapping("/training-app-springboot/api/jta/client")
     public List<Client> getAllClients() {
         return myService.getAllClients();
+    }
+    
+    @GetMapping("/training-app-springboot/api/jta/client/getByid/{id}")
+    public Optional<Client> getClientByID(@PathVariable long id) {
+        return myService.getClientByID(id);
     }
     
     @PostMapping("/training-app-springboot/api/jta/client")

@@ -4,6 +4,7 @@ import com.rgbconsulting.training_app_vSergi.data.model.Client;
 import java.util.List;
 import org.springframework.stereotype.Service;
 import com.rgbconsulting.training_app_vSergi.data.repository.ClientCrudRepository;
+import java.util.Optional;
 
 /**
  *
@@ -21,6 +22,10 @@ public class RestClientRepository {
     //GET ALL
     public List<Client> getAllClients() {
         return (List<Client>) this.clientRepository.findAll();
+    }
+    //GET BY ID
+    public Optional<Client> getClientByID(Long id){
+        return this.clientRepository.findById(id);
     }
     //INSERT
     public void insertClient(Client client) {
